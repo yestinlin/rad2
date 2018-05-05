@@ -6,4 +6,8 @@ class StaticPagesController < ApplicationController
   end
   def submit
   end
+  def about
+  end
+    def comments
+  end
 end

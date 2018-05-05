@@ -4,6 +4,8 @@ ruby '2.3.4'
 
 gem 'rails', '5.0.0'
 
+gem 'bootstrap-sass', '3.3.7'
+
 gem 'sqlite3'
 
 gem 'sass-rails', '~> 5.0'

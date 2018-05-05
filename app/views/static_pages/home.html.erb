@@ -5,11 +5,16 @@
     <title><%= yield(:title) %> | Rmit news</title>
   </head>
   <body>
-    <h1>Rmit News</h1>
-    <p>
-      This is the home page for the
-      <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-      
-    </p>
+    <div class="center jumbotron">
+        <h3>Rmit News</h3>
+     
+  <%= link_to image_tag("rmit.jpg", alt: "logo",size:"60x70") %>
+
+  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+</div>
+
+
+            
+  
   </body>
 </html>
