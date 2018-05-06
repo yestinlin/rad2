@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'static_pages/help'
+
   root 'static_pages#home'
   
   get 'static_pages/home'
@@ -8,10 +12,11 @@ Rails.application.routes.draw do
   get  'static_pages/submit'
   
   get  'static_pages/about'
-  
+  get  'static_pages/comments'
 
   get 'users/new'
-
-  resources :submissions
-
+   
+   get  '/comments', to: 'static_pages#comments'
+   get  '/about',   to: 'static_pages#about'
+   get  '/signup',  to: 'users#new'
 end

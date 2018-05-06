@@ -1,11 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
- 
+   <%= link_to image_tag("rmit.jpg", alt: "logo",size:"40x50") %>
+   <%= link_to "Rmit News", root_path,  id: "logo" %>
     <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",    root_path %></li>
-            <li><%= link_to "Submit",   submit_path %></li>
-            <li><%= link_to "Comments",   comment_path %></li>
+            <li><%= link_to "Submit",   '#' %></li>
+            <li><%= link_to "Comments",   comments_path %></li>
             <li><%= link_to "Log in", '#' %></li>
             
           </ul>

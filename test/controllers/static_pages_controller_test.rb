@@ -1,18 +1,14 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+ 
 
   test "should get home" do
     get root_path
     assert_response :success
-    assert_select "title", "Rmit News"
+   assert_select "title", "Rmit News"
   end
 
-  test "should get submit" do
-    get submit_path
-    assert_response :success
-    assert_select "title", "Submit | Rmit News"
-  end
 
   test "should get comments" do
     get comments_path
@@ -26,3 +22,4 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "About | Rmit News"
   end
 end
+
