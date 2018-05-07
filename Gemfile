@@ -6,7 +6,7 @@ gem 'rails', '5.0.0'
 
 gem 'bootstrap-sass', '3.3.7'
 
-
+gem 'bcrypt',         '3.1.11'
 
 gem 'sass-rails', '~> 5.0'
 
