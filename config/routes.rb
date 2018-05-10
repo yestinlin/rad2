@@ -19,4 +19,6 @@ Rails.application.routes.draw do
    get  '/comments', to: 'static_pages#comments'
    get  '/about',   to: 'static_pages#about'
    get  '/signup',  to: 'users#new'
+   post '/signup',  to: 'users#create'
+   resources :users
 end
