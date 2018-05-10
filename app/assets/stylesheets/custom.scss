@@ -1,13 +1,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+<<<<<<< HEAD
 
+=======
+>>>>>>> sign-up
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> sign-up
 body {
   padding-top: 50px;
 }
@@ -151,7 +157,10 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> sign-up
 #error_explanation {
   color: red;
   ul {
