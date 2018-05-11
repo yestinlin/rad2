@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
+=======
+  
+
+ 
+
+  resources :submits
+  resources :submissions
+  get 'static_pages/help'
+>>>>>>> add_submit
 
   root 'static_pages#home'
   
@@ -21,9 +31,13 @@ Rails.application.routes.draw do
    get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+<<<<<<< HEAD
   get '/submit', to: 'submits#index'
 
 
+=======
+  get '/submit', to: 'submit#index'
+>>>>>>> add_submit
     resources :users
 
 end

@@ -11,4 +11,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     get root_path
     assert flash.empty?
   end
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> add_submit

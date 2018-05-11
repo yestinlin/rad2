@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180510131040) do
+=======
+ActiveRecord::Schema.define(version: 20180510125645) do
+>>>>>>> add_submit
 
   create_table "submissions", force: :cascade do |t|
     t.string   "title"
