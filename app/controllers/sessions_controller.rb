@@ -15,16 +15,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-<<<<<<< HEAD
+
     log_out
     redirect_to root_url
   end
 end
-
-   
-=======
-      log_out
-    redirect_to root_url
-  end
-end
->>>>>>> add_submit
