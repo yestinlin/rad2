@@ -1,14 +1,8 @@
 Rails.application.routes.draw do
+  resources :submits
+
 
   
-
- 
-
-  resources :submits
-  resources :submissions
-  get 'static_pages/help'
-
-  root 'static_pages#home'
   
   get 'static_pages/home'
 
@@ -31,9 +25,7 @@ Rails.application.routes.draw do
 
   get '/submit', to: 'submits#index'
 
-
-
-  get '/submit', to: 'submit#index'
+   root 'submits#index'
 
     resources :users
 

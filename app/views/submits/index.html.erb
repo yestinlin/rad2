@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
+<% provide(:title, 'Submit a news') %>
 
-<h1>Submits</h1>
-
+<div class="center jumbotron">
 <table>
   <thead>
     <tr>
@@ -13,17 +13,30 @@
 
   <tbody>
     <% @submits.each do |submit| %>
-      <tr>
-        <td><%= submit.title %></td>
-        <td><%= submit.url %></td>
+      <tr class="post">
+        
+        <td>
+         
+         <%= link_to submit.title, submit.url, class: "title" %></td>
+         <td><%= link_to submit.url, "(#{submit.url})", target: "_blank" %>
+        </td>
+        <% if logged_in? %>
         <td><%= link_to 'Show', submit %></td>
         <td><%= link_to 'Edit', edit_submit_path(submit) %></td>
         <td><%= link_to 'Destroy', submit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% else %>
+          
+          <% end %>
       </tr>
+    <td><li id="submit-<%= submit.id %>
+        <span class="timestamp">
+        Posted <%= time_ago_in_words(submit.created_at) %> ago.</span></li></td>
     <% end %>
   </tbody>
+
 </table>
 
+</div>
 <br>
 
 <%= link_to 'New Submit', new_submit_path %>

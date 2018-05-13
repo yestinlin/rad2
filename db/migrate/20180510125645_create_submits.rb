@@ -6,5 +6,6 @@ class CreateSubmits < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
+    add_index :submits, [:user_id, :created_at]
   end
 end
