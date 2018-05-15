@@ -20,7 +20,7 @@
          <%= link_to submit.title, submit.url, class: "title" %></td>
          <td><%= link_to submit.url, submit.url, target: "_blank" %>
         </td>
-        <% if logged_in? && @submit.user_id == current_user.id %>
+        <% if logged_in?  %>
         
         <td><%= link_to 'Show', submit %></td>
         <td><%= link_to 'Edit', edit_submit_path(submit) %></td>
