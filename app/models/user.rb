@@ -19,6 +19,6 @@ class User < ApplicationRecord
     BCrypt::Password.create(string, cost: cost)
 
     
-    has_many :submits, dependent: :destroy
+    has_many :submits
   end
 end

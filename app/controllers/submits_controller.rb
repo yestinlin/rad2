@@ -25,7 +25,6 @@ class SubmitsController < ApplicationController
   # POST /submits.json
   def create
     @submit = Submit.new(submit_params)
-
     respond_to do |format|
       if @submit.save
         format.html { redirect_to @submit, notice: 'Submit was successfully created.' }

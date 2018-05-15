@@ -18,9 +18,10 @@
         <td>
          
          <%= link_to submit.title, submit.url, class: "title" %></td>
-         <td><%= link_to submit.url, "(#{submit.url})", target: "_blank" %>
+         <td><%= link_to submit.url, submit.url, target: "_blank" %>
         </td>
-        <% if logged_in? %>
+        <% if logged_in? && @submit.user_id == current_user.id %>
+        
         <td><%= link_to 'Show', submit %></td>
         <td><%= link_to 'Edit', edit_submit_path(submit) %></td>
         <td><%= link_to 'Destroy', submit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,6 +30,8 @@
           <% end %>
       </tr>
     <td><li id="submit-<%= submit.id %>
+        
+       
         <span class="timestamp">
         Posted <%= time_ago_in_words(submit.created_at) %> ago.</span></li></td>
     <% end %>
@@ -38,8 +41,3 @@
 
 </div>
 <br>
- <% if logged_in? %>
- <%= link_to 'New Submit', new_submit_path %>
- <% else %>
-          
-          <% end %>

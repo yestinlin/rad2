@@ -6,7 +6,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",    root_path %></li>
             <% if logged_in? %>
-            <li><%= link_to "Submit",   submits_path %></li>
+            <li><%= link_to "Submit",   new_submit_path %></li>
              <% else %>
              <li><%= link_to "Submit",   login_path %></li>
              <% end %>
