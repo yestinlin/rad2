@@ -1,0 +1,32 @@
+<section class="sitewide-comments">
+  <% @comments.each do |comment| %>
+  <div class="comment">
+    <p class="comment-owner">
+      <strong>
+        <%= comment.user.username %>
+      </strong>
+
+      <span class="comment-created small">
+        <%= time_ago_in_words(comment.created_at) %> ago
+      </span>
+
+      <% if logged_in?  %>
+      <span class="edit-comment">
+        <%= link_to 'edit',  edit_submit_comment_path(comment.submit, comment) %>
+      </span>
+
+      <span class="delete-comment">
+        <%= link_to 'delete', submit_comment_path(comment.submit, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </span>
+      <span class="comment-count">
+  <%= submit_to pluralize(submit.comment_count, 'comment'), link %>
+</span>
+      <% end %>
+    </p>
+
+    <p>
+      <%= comment.body %>
+    </p>
+  </div>
+  <% end %>
+</section>

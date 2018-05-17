@@ -16,13 +16,17 @@
       <tr class="post">
         
         <td>
-         
-         <%= link_to submit.title, submit.url, class: "title" %></td>
-         <td><%= link_to submit.url, submit.url, target: "_blank" %>
+         <%= link_to submit.title, (submit.url? ? submit.url : submit) %></td>
+        <br>
+        <% if submit.url? %>
+            <span>
+               <td>( <%= submit.url %> )
+            </span>
+        <% end %>
         </td>
         <% if logged_in?  %>
         
-        <td><%= link_to 'Show', submit %></td>
+        
         <td><%= link_to 'Edit', edit_submit_path(submit) %></td>
         <td><%= link_to 'Destroy', submit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
          <% else %>
@@ -33,11 +37,20 @@
         
        
         <span class="timestamp">
-        Posted <%= time_ago_in_words(submit.created_at) %> ago.</span></li></td>
+        Posted <%= time_ago_in_words(submit.created_at) %> ago.</span>
+        <span class="comment-count">
+            <%= link_to pluralize(submit.comment_count, 'comment'), submit %>
+        </span></li></td>
     <% end %>
-  </tbody>
-
+    
 </table>
 
+<% if @submits.next_page %>
+    <div id="load_more_submits" class="btn btn-primary btn-lg">More</div>
+<% end %>
+
+
+</div>
+  </tbody>
 </div>
 <br>

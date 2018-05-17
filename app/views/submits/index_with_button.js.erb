@@ -1,0 +1,7 @@
+$('#my-submits').append('<%= j render @submits %>');
+<% if @submits.next_page %>
+    $('.pagination').replaceWith('<%= j will_paginate @submits %>');
+    $('.pagination').hide();
+<% else %>
+    $('.pagination, #load_more_submits').remove();
+<% end %>

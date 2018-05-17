@@ -10,7 +10,7 @@ gem 'bcrypt',         '3.1.11'
 
 gem 'sass-rails', '~> 5.0'
 
-
+gem "will_paginate", "~> 3.0.4" 
 
 gem 'coffee-rails', '~> 4.1.0'
 

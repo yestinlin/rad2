@@ -1,15 +1,18 @@
 class SubmitsController < ApplicationController
-  before_action :set_submit, only: [:show, :edit, :update, :destroy]
+  before_action :set_submit, only: [:edit, :update, :destroy]
 
   # GET /submits
   # GET /submits.json
   def index
     @submits = Submit.all
+    get_and_show_submits
   end
 
   # GET /submits/1
   # GET /submits/1.json
   def show
+    @submit = Submit.find_by(id: params[:id])
+    @comments = @submit.comments
   end
 
   # GET /submits/new
@@ -19,21 +22,20 @@ class SubmitsController < ApplicationController
 
   # GET /submits/1/edit
   def edit
+    
   end
 
   # POST /submits
   # POST /submits.json
   def create
-    @submit = Submit.new(submit_params)
-    respond_to do |format|
-      if @submit.save
-        format.html { redirect_to @submit, notice: 'Submit was successfully created.' }
-        format.json { render :show, status: :created, location: @submit }
-      else
-        format.html { render :new }
-        format.json { render json: @submit.errors, status: :unprocessable_entity }
-      end
+    @submit = current_user.submits.new(submit_params)
+    
+    if @submit.save
+      redirect_to root_path, notice: 'Link successfullt created'
+    else
+      render :new
     end
+  end
   end
 
   # PATCH/PUT /submits/1
@@ -59,7 +61,11 @@ class SubmitsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+   def index_with_button
+    get_and_show_submits
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_submit
@@ -68,6 +74,13 @@ class SubmitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def submit_params
-      params.require(:submit).permit(:title, :url)
+      params.require(:submit).permit(:title, :url , :description)
+    end
+
+   def get_and_show_submits
+    @submits = Submit.paginate(page: params[:page], per_page: 8).order('created_at DESC')
+    respond_to do |format|
+        format.html
+        format.js { render json: @submits }
     end
 end

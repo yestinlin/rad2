@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :submits
+  has_many :comments
   before_save { self.email = email.downcase }
   VALID_NAME_REGEX = /\A[A-Za-z0-9\-\_]+\z/i
   validates :name,  presence: true, length: { minimum:2, maximum: 15 },
@@ -17,8 +19,11 @@ class User < ApplicationRecord
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
-
-    
-    has_many :submits
+    def owns_submit?(submit)
+        self == submit.user
+    end
+def owns_comment?(comment)
+  self == comment.user
+end
   end
 end
