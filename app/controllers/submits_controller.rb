@@ -5,7 +5,7 @@ class SubmitsController < ApplicationController
   # GET /submits.json
   def index
     @submits = Submit.all
-    get_and_show_submits
+    
   end
 
   # GET /submits/1
@@ -55,15 +55,12 @@ class SubmitsController < ApplicationController
   # DELETE /submits/1
   # DELETE /submits/1.json
   def destroy
+     submit = Submit.find_by(id: params[:id])
     @submit.destroy
     respond_to do |format|
       format.html { redirect_to submits_url, notice: 'Submit was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-  
-   def index_with_button
-    get_and_show_submits
   end
   
   private
@@ -76,11 +73,5 @@ class SubmitsController < ApplicationController
     def submit_params
       params.require(:submit).permit(:title, :url , :description)
     end
-
-   def get_and_show_submits
-    @submits = Submit.paginate(page: params[:page], per_page: 8).order('created_at DESC')
-    respond_to do |format|
-        format.html
-        format.js { render json: @submits }
-    end
-end
+   
+    

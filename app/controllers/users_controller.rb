@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def new
      @user = current_user
+     @user = User.new
   end
   
    def create
@@ -16,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Rmit News!"
 
-      redirect_to @user
+      redirect_to root_path, notice: 'Logged in'
     else
       render 'new'
     end
