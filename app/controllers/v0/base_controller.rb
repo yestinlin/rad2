@@ -1,4 +1,4 @@
-class Api::V0::BaseController < ApplicationController
+class V0::BaseController < ApplicationController
   protect_from_forgery with: :null_session
 
   # disable cookies (no set-cookies header in response)

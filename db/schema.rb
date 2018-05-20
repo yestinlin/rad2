@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180516071156) do
+ActiveRecord::Schema.define(version: 20180517064410) do
 
   create_table "add_text_submits", force: :cascade do |t|
     t.string   "title"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20180516071156) do
     t.datetime "updated_at", null: false
     t.index ["submit_id"], name: "index_comments_on_submit_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "submit_id"
+    t.text     "description"
   end
 
   create_table "submits", force: :cascade do |t|

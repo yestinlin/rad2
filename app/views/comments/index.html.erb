@@ -3,7 +3,7 @@
   <div class="comment">
     <p class="comment-owner">
       <strong>
-        <%= comment.user.username %>
+        <%= comment.user.email %>
       </strong>
 
       <span class="comment-created small">
@@ -12,15 +12,13 @@
 
       <% if logged_in?  %>
       <span class="edit-comment">
-        <%= link_to 'edit',  edit_submit_comment_path(comment.submit, comment) %>
+        <%= link_to 'edit',  edit_comment_path(comment.submit, comment) %>
       </span>
 
       <span class="delete-comment">
-        <%= link_to 'delete', submit_comment_path(comment.submit, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'delete', comment_path(comment.submit, comment), method: :delete, data: { confirm: 'Are you sure?' } %>
       </span>
-      <span class="comment-count">
-  <%= submit_to pluralize(submit.comment_count, 'comment'), link %>
-</span>
+     
       <% end %>
     </p>
 

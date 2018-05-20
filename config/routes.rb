@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    
   
   
 
@@ -25,7 +26,10 @@ Rails.application.routes.draw do
   get '/submit', to: 'submits#index'
   
 resources :sessions
+resources :users
 
-  resources :users
+resources :submits
+
+  
+
 end
-
